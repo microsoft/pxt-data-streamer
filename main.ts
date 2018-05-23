@@ -7,19 +7,19 @@ namespace serial {
             s += "-";
         }
 
-        let integral = Math.idiv(v, scale);
-        let decimal = v % scale;
-        s += integral.toString();
-        if (decimal) {
+        let int = Math.idiv(v, scale);
+        let dec = v % scale;
+        s += int.toString();
+        if (dec) {
             s += '.';
             scale = Math.idiv(scale, 10);
             while (scale) {
-                let digit = Math.idiv(decimal, scale);
+                let digit = Math.idiv(dec, scale);
                 if (digit)
                     s += digit.toString();
                 else
                     s += "0";
-                decimal = decimal % scale;
+                dec = dec % scale;
                 scale = Math.idiv(scale, 10);
             }
         }
