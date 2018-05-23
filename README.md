@@ -1,17 +1,16 @@
-# hacking-stem
+# Hacking STEM [![Build Status](https://travis-ci.org/Microsoft/pxt-hacking-stem.svg?branch=master)](https://travis-ci.org/Microsoft/pxt-hacking-stem)
 
-Support for Hacking STEM activities
+Support for Hacking STEM activities in https://makecode.microbit.org
 
-## TODO
+## Usage
 
-- [ ] Add a reference for your blocks here
-- [ ] Add "icon.png" image (300x200) in the root folder
-- [ ] Add "- beta" to the GitHub project description if you are still iterating it.
-- [ ] Turn on your automated build on https://travis-ci.org
-- [ ] Use "pxt bump" to create a tagged release on GitHub
-- [ ] Get your package reviewed and approved https://makecode.microbit.org/packages/approval
+### ``serial.writeMilliNumber`` #serialWriteMilliNumber
 
-Read more at https://makecode.microbit.org/packages/build-your-own
+The ``||serial:write milli number||`` block scales the input value by 1000 and writes it to the serial as a floating point number.
+
+```sig
+serial.writeMilliNumber(1);
+```
 
 ## License
 

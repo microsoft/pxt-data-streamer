@@ -1,1 +1,9 @@
-// tests go here; this will not be compiled when this package is used as a library
+serial.writeMilliNumber(1);
+serial.writeMilliNumber(20);
+serial.writeMilliNumber(400);
+serial.writeMilliNumber(1000);
+serial.writeMilliNumber(1002);
+serial.writeMilliNumber(10000002);
+serial.writeMilliNumber(0);
+serial.writeMilliNumber(-1);
+serial.writeMilliNumber(-1000);
