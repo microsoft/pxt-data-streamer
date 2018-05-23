@@ -12,6 +12,17 @@ The ``||serial:write milli number||`` block scales the input value by 1000 and w
 serial.writeMilliNumber(1);
 ```
 
+For example,
+
+```blocks
+serial.writeMilliNumber(1);
+```
+
+writes the following number to serial
+
+    0.001
+
+
 ## License
 
 MIT
