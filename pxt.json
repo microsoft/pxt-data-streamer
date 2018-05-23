@@ -4,8 +4,7 @@
     "description": "Support for Hacking STEM activities",
     "license": "MIT",
     "dependencies": {
-        "core": "*",
-        "radio": "*"
+        "core": "*"
     },
     "files": [
         "README.md",
@@ -14,5 +13,5 @@
     "testFiles": [
         "test.ts"
     ],
-    "public": false
+    "public": true
 }
