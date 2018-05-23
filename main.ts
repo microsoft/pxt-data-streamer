@@ -1,13 +1,14 @@
 namespace serial {
     function fixedToString(value: number, scale: number) {
         let s = "";
-        if (value < 0) {
-            value = -value;
+        let v = value;
+        if (v < 0) {
+            v = -v;
             s += "-";
         }
 
-        const integral = Math.idiv(value, scale);
-        let decimal = value % scale;
+        let integral = Math.idiv(v, scale);
+        let decimal = v % scale;
         s += integral.toString();
         if (decimal) {
             s += '.';
