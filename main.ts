@@ -1,6 +1,5 @@
 namespace serial {
     function fixedToString(value: number, scale: number) {
-        scale = scale | 0;
         let s = "";
         if (value < 0) {
             value = -value;
@@ -19,7 +18,7 @@ namespace serial {
                     s += digit.toString();
                 else
                     s += "0";
-                decimal %= scale;
+                decimal = decimal % scale;
                 scale = Math.idiv(scale, 10);
             }
         }
