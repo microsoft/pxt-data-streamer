@@ -4,6 +4,10 @@ Support for Hacking STEM activities in https://makecode.microbit.org
 
 ## Usage
 
+Go to https://makecode.microbit.org, click on the gearwheel menu and select ``Add Package``, search for ``hacking stem`` and select this package.
+
+## Reference
+
 ### ``serial.writeMilliNumber`` #serialWriteMilliNumber
 
 The ``||serial:write milli number||`` block scales the input value by 1000 and writes it to the serial as a floating point number.
