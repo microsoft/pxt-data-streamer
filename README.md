@@ -26,6 +26,15 @@ writes the following number to serial
 
     0.001
 
+This example reads the analog signal on pin ``P0``, scales it to 3.3v and writes it to serial.
+
+```blocks
+let mv = 0
+basic.forever(() => {
+    mv = pins.analogReadPin(AnalogPin.P0) * 3300 / 1023
+    serial.writeMilliNumber(mv)
+})
+```
 
 ## License
 
