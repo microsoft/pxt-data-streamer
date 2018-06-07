@@ -39,9 +39,10 @@ namespace serial {
 
 namespace hackingSTEM {
     //% shim=hackingSTEM::init
-    export function init() {
-        // do nothing
+    function init() {
+        // keep this statement
+        return;
     }
-}
 
-hackingSTEM.init();
+    init();
+}
