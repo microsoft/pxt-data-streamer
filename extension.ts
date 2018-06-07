@@ -36,3 +36,12 @@ namespace serial {
         serial.writeLine(fixedToString(value, 1000));
     }
 }
+
+namespace hackingSTEM {
+    //% shim=hackingSTEM::init
+    export function init() {
+        // do nothing
+    }
+}
+
+hackingSTEM.init();
