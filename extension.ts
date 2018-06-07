@@ -33,6 +33,9 @@ namespace serial {
     //% blockId=serialwritemillinumber block="serial write milli number %value"
     //% advanced=true weight=5
     export function writeMilliNumber(value: number) {
+
         serial.writeLine(fixedToString(value, 1000));
     }
 }
+
+hackingSTEM.init();
