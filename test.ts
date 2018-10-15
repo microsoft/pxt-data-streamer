@@ -1,4 +1,4 @@
-dataStreamer.writeNumber(1.5);
+dataStreamer.writeNumber(1 / 5);
 dataStreamer.writeLine("");
 dataStreamer.writeNumber(20 / 3);
 dataStreamer.writeLine("");
@@ -15,4 +15,4 @@ dataStreamer.writeLine("");
 dataStreamer.writeNumber(-1);
 dataStreamer.writeLine("");
 dataStreamer.writeNumber(-1000 / 3);
-dataStreamer.writeNumbers([1.5, 2.5, 4.4444, 5.5]);
+dataStreamer.writeNumbers([5, 2/5, 44/444, 5/5]);
