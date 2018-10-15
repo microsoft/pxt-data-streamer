@@ -1,5 +1,6 @@
 #include "pxt.h"
 using namespace pxt;
+
 namespace dataStreamer {
    //%
    void init() {
@@ -8,7 +9,7 @@ namespace dataStreamer {
    }
 
    //% blockId=serial_redirect block="set serial baud rate %rate"
-   void setBaudRate(BaudRate rate) {
-    uBit.serial.baud((int)rate);
+   void setBaudRate(int rate) {
+    uBit.serial.baud(rate);
    }
 }
