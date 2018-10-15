@@ -1,48 +1,43 @@
-namespace serial {
-    function fixedToString(value: number, scale: number) {
-        let s = "";
-        let v = value;
-        if (v < 0) {
-            v = -v;
-            s += "-";
-        }
-
-        let int = Math.idiv(v, scale);
-        let dec = v % scale;
-        s += int.toString();
-        if (dec) {
-            s += '.';
-            scale = Math.idiv(scale, 10);
-            while (scale) {
-                let digit = Math.idiv(dec, scale);
-                if (digit)
-                    s += digit.toString();
-                else
-                    s += "0";
-                dec = dec % scale;
-                scale = Math.idiv(scale, 10);
-            }
-        }
-        return s;
+/**
+ * Writing data for hacking stem experiments
+ */
+//% weight=4 color=#002050 icon="\uf287"
+namespace dataStreamer {
+    /**
+     * Print a numeric value to the serial port
+     * @param value to send over serial
+     */
+    //% blockId=datastreamer_writeNumber block="dataStreamer| write number %value"
+    //% weight=5
+    export function writeNumber(value: number) {
+        serial.writeNumber(value)
     }
 
     /**
-     * Writes a numeric value scaled by 1000, as a floating point,  to serial
-     * @param value the milli value to write
+     * Print a line of text to the serial port
+     * @param text to send over serial
      */
-    //% blockId=serialwritemillinumber block="serial write milli number %value"
-    //% advanced=true weight=5
-    export function writeMilliNumber(value: number) {
-        serial.writeLine(fixedToString(value, 1000));
-    }
-}
+    //% blockId=datastreamer_writeline block="dataStreamer|write line %text"
+    //% weight=5
+    export function writeLine(text: string) {
+        serial.writeLine(text)
+    }    
 
-namespace hackingSTEM {
-    //% shim=hackingSTEM::init
+    /**
+     * Print an array of numeric values as CSV to the serial port
+     */
+    //% weight=86
+    //% blockId=datastreamer_writenumbers block="dataStreamer|write numbers %values"
+    export function writeNumbers(values: number[]): void {
+        serial.writeNumbers(values)
+    }
+
+    //% shim=dataStreamer::init
     function init() {
         // keep this statement
         return;
     }
 
     init();
+  
 }
