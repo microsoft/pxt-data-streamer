@@ -17,7 +17,7 @@ namespace dataStreamer {
      * Print a text to the serial port
      * @param text to send over serial
      */
-    //% blockId=datastreamer_writeline block="write string %text"
+    //% blockId=datastreamer_writestring block="write string %text"
     //% weight=20
     //% text.default=","
     export function writeString(text: string) {
