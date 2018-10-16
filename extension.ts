@@ -19,7 +19,7 @@ namespace dataStreamer {
      */
     //% blockId=datastreamer_writestring block="write string %text"
     //% weight=20
-    //% text.default=","
+    //% text.defl=","
     export function writeString(text: string) {
         serial.writeString(text)
     }
