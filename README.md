@@ -38,7 +38,9 @@ basic.forever(() => {
 
 ## License
 
-MIT
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Licensed under the [MIT](LICENSE) License.
 
 ## Supported targets
 
