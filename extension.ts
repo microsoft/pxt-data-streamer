@@ -1,7 +1,7 @@
 /**
  * Writing data for hacking stem experiments
  */
-//% weight=4 color=#002050 icon="\uf287"
+//% weight=4 color=#ffab19 icon="\uf287"
 namespace dataStreamer {
     /**
      * Print a numeric value to the serial port
@@ -25,13 +25,12 @@ namespace dataStreamer {
     }
 
     /**
-     * Print a new line to the serial port, optionally add the text before the new line
-     * @param optional text to send over serial before new line
+     * Print a new line to the serial port
      */
-    //% blockId=datastreamer_writeline block="write line %text"
+    //% blockId=datastreamer_writeline block="write line"
     //% weight=20
-    export function writeLine(text: string) {
-        serial.writeLine(text)
+    export function writeLine() {
+        serial.writeLine("")
     }
 
     /**

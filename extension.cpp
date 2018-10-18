@@ -8,7 +8,13 @@ namespace dataStreamer {
      uBit.serial.baud(9600);
    }
 
-   //% blockId=serial_redirect block="set serial baud rate %rate"
+    /**
+    * Set the USB baud rate connection.
+    * @param rate the new baud rate. eg: 115200
+    */
+    //% weight=10
+    //% blockId=datastreamer_setBaud block="set baud rate %rate"
+
    void setBaudRate(int rate) {
     uBit.serial.baud(rate);
    }
