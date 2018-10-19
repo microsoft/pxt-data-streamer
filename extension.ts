@@ -41,7 +41,6 @@ namespace dataStreamer {
     //% blockId=datastreamer_writestring block="write string %text"
     //% weight=20
     //% text.defl=","
-    //% decimalDigits.defl=2
     export function writeString(text: string) {
         serial.writeString(text)
     }
@@ -58,12 +57,12 @@ namespace dataStreamer {
     /**
      * Print an array of numeric values as CSV to the serial port
      */
-    //% blockId=datastreamer_writenumbers block="write array as comma seperated numbers %values||decimal digits %decimalDigits"
+    //% blockId=datastreamer_writenumberarray block="write number array %values||decimal digits %decimalDigits"
     //% weight=10
     //% values.shadow="lists_create_with"
     //% decimalDigits.defl=2
     //% expandableArgumentMode=toggle
-    export function writeNumbers(values: number[], decimalDigits: number = 2): void {
+    export function writeNumberArray(values: number[], decimalDigits: number = 2): void {
         for (let i = 0; i < values.length; i++) {
             dataStreamer.writeNumber(values[i], decimalDigits)
             if ((i + 1) < values.length) {
