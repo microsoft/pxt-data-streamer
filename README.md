@@ -8,7 +8,7 @@ Go to https://makecode.microbit.org, click on the gearwheel menu and select ``Ex
 
 ## Reference
 
-### ``dataStreamer.writeNumber`` 
+## ``dataStreamer.writeNumber`` 
 
 The ``||dataStreamer.writeNumber||`` block writes a number to the serial port as a floating point number.
 
@@ -16,14 +16,12 @@ The ``||dataStreamer.writeNumber||`` block writes a number to the serial port as
 dataStreamer.writeNumber(1.52, 2);
 ```
 
-
-## Parameters
+### Parameters
 
 * `value` is the floating point number to write to the serial port
 * `decimal digits` is the number of decimal digits to write. Default is 2.
 
-## Example 1
-
+### Example 1
 For example,
 
 ```blocks
@@ -31,10 +29,9 @@ dataStreamer.writeNumber(1.52);
 ```
 
 writes the following number to serial
+1.52
 
-    1.52
-
-## Example 2
+### Example 2
 This example reads the analog signal on pin ``P0``, scales it to 3.3v and writes it to serial.
 
 ```blocks
@@ -44,7 +41,8 @@ basic.forever(() => {
     dataStreamer.writeNumber(mv)
 })
 ```
-### ``dataStreamer.writeString`` 
+
+## ``dataStreamer.writeString`` 
 
 The ``||dataStreamer.writeString||`` block writes a string to the serial port, without starting a new line afterward.
 
