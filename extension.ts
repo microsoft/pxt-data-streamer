@@ -13,7 +13,7 @@ namespace dataStreamer {
     //% decimalDigits.defl=2
     //% expandableArgumentMode=toggle
 
-    export function writeNumber(value: number, decimalDigits: number) {
+    export function writeNumber(value: number, decimalDigits: number = 2) {
         //Format to right number of decimalDigits
         let text: string = value.toString();
         let len = 0; //Tracks the subscrtring length
@@ -63,7 +63,7 @@ namespace dataStreamer {
     //% values.shadow="lists_create_with"
     //% decimalDigits.defl=2
     //% expandableArgumentMode=toggle
-    export function writeNumbers(values: number[], decimalDigits: number): void {
+    export function writeNumbers(values: number[], decimalDigits: number = 2): void {
         for (let i = 0; i < values.length; i++) {
             dataStreamer.writeNumber(values[i], decimalDigits)
             if ((i + 1) < values.length) {
