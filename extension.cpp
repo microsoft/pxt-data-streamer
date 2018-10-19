@@ -10,10 +10,11 @@ namespace dataStreamer {
 
     /**
     * Set the USB baud rate connection.
-    * @param rate the new baud rate. eg: 115200
+    * @param rate the new baud rate.
     */
     //% weight=10
     //% blockId=datastreamer_setBaud block="set baud rate %rate"
+    //% rate.defl=9600
 
    void setBaudRate(int rate) {
     uBit.serial.baud(rate);

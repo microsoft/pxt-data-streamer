@@ -6,11 +6,32 @@ namespace dataStreamer {
     /**
      * Print a numeric value to the serial port
      * @param value to send over serial
+     * @param decimalDigits (optional) unit of the value
      */
-    //% blockId=datastreamer_writeNumber block="write number %value"
+    //% blockId=datastreamer_writeNumber block="write number %value|\\%||format %decimalDigits"
     //% weight=30
-    export function writeNumber(value: number) {
-        serial.writeNumber(value)
+    //% decimalDigits.defl=2
+    //% expandableArgumentMode=toggle
+
+    export function writeNumber(value: number, decimalDigits: number) {
+        //Format to right number of decimalDigits
+        let text: string = value.toString();
+        let len = 0; //Tracks the subscrtring length
+
+        for (;len < text.length; len++) { //Find the .
+            if (text[len] == ".") { break; }
+        }
+
+        if (decimalDigits != 0)  { 
+            len++ //Account for .
+            if (len + decimalDigits <  text.length) { 
+                len = len + decimalDigits;
+            } else {
+                len = text.length;
+            }
+        }
+        
+       serial.writeString(text.substr(0, len))
     }
 
     /**
@@ -36,12 +57,17 @@ namespace dataStreamer {
     /**
      * Print an array of numeric values as CSV to the serial port
      */
-    //% blockId=datastreamer_writenumbers block="write comma seperated numbers %values"
+    //% blockId=datastreamer_writenumbers block="write array as comma seperated numbers %values|\\%||format %decimalDigits"
     //% weight=10
-    export function writeNumbers(values: number[]): void {
+    //% values.shadow="lists_create_with"
+    //% decimalDigits.defl=2
+    //% expandableArgumentMode=toggle
+    export function writeNumbers(values: number[], decimalDigits: number): void {
         for (let i = 0; i < values.length; i++) {
-            serial.writeNumber(values[i])
-            serial.writeLine(",")
+            dataStreamer.writeNumber(values[i], decimalDigits)
+            if ((i + 1) < values.length) {
+                dataStreamer.writeString(",")
+            }
         }
     }
 
