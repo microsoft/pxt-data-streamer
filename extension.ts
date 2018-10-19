@@ -1,7 +1,7 @@
 /**
  * Writing data for hacking stem experiments
  */
-//% weight=4 color=#ffab19 icon="\uf287"
+//% weight=94 color=#ffab19 icon="\uf287"
 namespace dataStreamer {
     /**
      * Print a numeric value to the serial port
