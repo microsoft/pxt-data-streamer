@@ -50,11 +50,11 @@ The ``||dataStreamer.writeString||`` block writes a string to the serial port, w
 dataStreamer.writeString(",");
 ```
 
-## Parameters
+### Parameters
 
 * `text` is the string to write to the serial port
 
-## Example: simple serial
+### Example: simple serial
 
 This program writes a comma `,` seperated 10.25 to the serial port repeatedly,
 without any new lines.
