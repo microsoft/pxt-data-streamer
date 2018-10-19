@@ -10,26 +10,28 @@ namespace dataStreamer {
      */
     //% blockId=datastreamer_writeNumber block="write number %value||decimal digits %decimalDigits"
     //% weight=30
+    //% decimalDigits.defl=2
+    //% expandableArgumentMode=toggle
 
     export function writeNumber(value: number, decimalDigits: number) {
         //Format to right number of decimalDigits
         let text: string = value.toString();
         let len = 0; //Tracks the subscrtring length
 
-        for (;len < text.length; len++) { //Find the .
+        for (; len < text.length; len++) { //Find the .
             if (text[len] == ".") { break; }
         }
 
-        if (decimalDigits != 0)  { 
+        if (decimalDigits != 0) {
             len++ //Account for .
-            if (len + decimalDigits <  text.length) { 
+            if (len + decimalDigits < text.length) {
                 len = len + decimalDigits;
             } else {
                 len = text.length;
             }
         }
-        
-       serial.writeString(text.substr(0, len))
+
+        serial.writeString(text.substr(0, len))
     }
 
     /**
@@ -39,6 +41,7 @@ namespace dataStreamer {
     //% blockId=datastreamer_writestring block="write string %text"
     //% weight=20
     //% text.defl=","
+    //% decimalDigits.defl=2
     export function writeString(text: string) {
         serial.writeString(text)
     }
@@ -58,6 +61,8 @@ namespace dataStreamer {
     //% blockId=datastreamer_writenumbers block="write array as comma seperated numbers %values||decimal digits %decimalDigits"
     //% weight=10
     //% values.shadow="lists_create_with"
+    //% decimalDigits.defl=2
+    //% expandableArgumentMode=toggle
     export function writeNumbers(values: number[], decimalDigits: number): void {
         for (let i = 0; i < values.length; i++) {
             dataStreamer.writeNumber(values[i], decimalDigits)
