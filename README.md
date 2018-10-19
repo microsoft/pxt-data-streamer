@@ -8,7 +8,7 @@ Go to https://makecode.microbit.org, click on the gearwheel menu and select ``Ex
 
 ## Reference
 
-## ``dataStreamer.writeNumber`` 
+## writeNumber
 
 The ``||dataStreamer.writeNumber||`` block writes a number to the serial port as a floating point number.
 
@@ -32,17 +32,36 @@ writes the following number to serial
 1.52
 
 ### Example 2
-This example reads the analog signal on pin ``P0``, scales it to 3.3v and writes it to serial.
+This example reads the analog signal on pin ``P0``, scales it to 3.3v and writes it to serial with 4 decimal digits precision.
 
 ```blocks
 let mv = 0
 basic.forever(() => {
     mv = pins.analogReadPin(AnalogPin.P0) * 3.3 / 1023
-    dataStreamer.writeNumber(mv)
+    dataStreamer.writeNumber(mv,4)
 })
 ```
 
-## ``dataStreamer.writeString`` 
+## writeLine
+
+The ``||dataStreamer.writeString||`` block writes a new line to the serial port.
+
+```sig
+dataStreamer.writeLine();
+```
+
+### Example: Writing values in a loop
+
+This program writes a series of accererlation values to the serial port repeatedly. 
+
+```blocks
+basic.forever(function () {
+    dataStreamer.writeNumber(input.acceleration(Dimension.X))
+    dataStreamer.writeLine()
+})
+```
+
+## writeString
 
 The ``||dataStreamer.writeString||`` block writes a string to the serial port, without starting a new line afterward.
 
@@ -54,17 +73,60 @@ dataStreamer.writeString(",");
 
 * `text` is the string to write to the serial port
 
-### Example: simple serial
+### Example: Writing comma seperated values in a loop
 
-This program writes a comma `,` seperated 10.25 to the serial port repeatedly,
-without any new lines.
+This program writes a comma `,` seperated x,y,z acceleration values to the serial port repeatedly..
 
 ```blocks
-basic.forever(() => {
-    dataStreamer.writeNumber(10.25);
-    dataStreamer.writeString(",");
-});
+basic.forever(function () {
+    dataStreamer.writeNumber(input.acceleration(Dimension.X))
+    dataStreamer.writeString(",")
+    dataStreamer.writeNumber(input.acceleration(Dimension.Y))
+    dataStreamer.writeString(",")
+    dataStreamer.writeNumber(input.acceleration(Dimension.Z))
+    dataStreamer.writeLine()
+})
 ```
+
+## writeNumberArray
+
+The ``||dataStreamer.writeNumberArray||`` block writes a array of numbers to the serial port as a comma seperated values, without starting a new line afterward.
+
+```sig
+dataStreamer.writeNumberArray([0,1,2]);
+```
+
+### Parameters
+
+* `text` is the string to write to the serial port
+
+### Example: Writing comma seperated values in a loop
+
+This program writes a comma `,` seperated x,y,z acceleration values to the serial port repeatedly. 
+
+```blocks
+let acc: number[] = []
+basic.forever(function () {
+    acc[0] = input.acceleration(Dimension.X)
+    acc[1] = input.acceleration(Dimension.Y)
+    acc[2] = input.acceleration(Dimension.Z)
+    dataStreamer.writeNumberArray(acc)
+    dataStreamer.writeLine()
+})
+
+```
+
+## setBaudRate
+
+The ``||dataStreamer.setBaudRate||`` sets the baud rate. Default is 9600 for datastreamer
+
+```sig
+dataStreamer.setBaudRate(9600);
+```
+
+### Parameters
+
+* `rate` is the number for the baud rate
 
 ## License
 
