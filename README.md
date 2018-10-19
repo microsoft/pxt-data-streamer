@@ -1,39 +1,71 @@
 # Hacking STEM [![Build Status](https://travis-ci.org/Microsoft/pxt-hacking-stem.svg?branch=master)](https://travis-ci.org/Microsoft/pxt-hacking-stem)
 
-Support for Hacking STEM activities in https://makecode.microbit.org
+Support for [Hacking STEM](https://www.microsoft.com/en-us/education/education-workshop/activity-library.aspx) activities in [micro:bit](https://makecode.microbit.org). For Hacking Stem activities you will need excel add-on Data Streamer as well. To download Data Streamer [click here](https://www.microsoft.com/en-us/download/details.aspx?id=56976)
 
 ## Usage
 
-Go to https://makecode.microbit.org, click on the gearwheel menu and select ``Add Package``, search for ``hacking stem`` and select this package.
+Go to https://makecode.microbit.org, click on the gearwheel menu and select ``Extensions``, search for ``hacking stem`` and select this extension. Once you load the extension you should see a new category named DataStreamer.
 
 ## Reference
 
-### ``serial.writeMilliNumber`` #serialWriteMilliNumber
+### ``dataStreamer.writeNumber`` 
 
-The ``||serial:write milli number||`` block scales the input value by 1000 and writes it to the serial as a floating point number.
+The ``||dataStreamer.writeNumber||`` block writes a number to the serial port as a floating point number.
 
 ```sig
-serial.writeMilliNumber(1);
+dataStreamer.writeNumber(1.52, 2);
 ```
+
+
+## Parameters
+
+* `value` is the floating point number to write to the serial port
+* `decimal digits` is the number of decimal digits to write. Default is 2.
+
+## Example 1
 
 For example,
 
 ```blocks
-serial.writeMilliNumber(1);
+dataStreamer.writeNumber(1.52);
 ```
 
 writes the following number to serial
 
-    0.001
+    1.52
 
+## Example 2
 This example reads the analog signal on pin ``P0``, scales it to 3.3v and writes it to serial.
 
 ```blocks
 let mv = 0
 basic.forever(() => {
-    mv = pins.analogReadPin(AnalogPin.P0) * 3300 / 1023
-    serial.writeMilliNumber(mv)
+    mv = pins.analogReadPin(AnalogPin.P0) * 3.3 / 1023
+    dataStreamer.writeNumber(mv)
 })
+```
+### ``dataStreamer.writeString`` 
+
+The ``||dataStreamer.writeString||`` block writes a string to the serial port, without starting a new line afterward.
+
+```sig
+dataStreamer.writeString(",");
+```
+
+## Parameters
+
+* `text` is the string to write to the serial port
+
+## Example: simple serial
+
+This program writes a comma `,` seperated 10.25 to the serial port repeatedly,
+without any new lines.
+
+```blocks
+basic.forever(() => {
+    dataStreamer.writeNumber(10.25);
+    dataStreamer.writeString(",");
+});
 ```
 
 ## License
