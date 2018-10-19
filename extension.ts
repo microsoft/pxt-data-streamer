@@ -8,10 +8,8 @@ namespace dataStreamer {
      * @param value to send over serial
      * @param decimalDigits (optional) unit of the value
      */
-    //% blockId=datastreamer_writeNumber block="write number %value|\\%||format %decimalDigits"
+    //% blockId=datastreamer_writeNumber block="write number %value||decimal digits %decimalDigits"
     //% weight=30
-    //% decimalDigits.defl=2
-    //% expandableArgumentMode=toggle
 
     export function writeNumber(value: number, decimalDigits: number) {
         //Format to right number of decimalDigits
@@ -57,11 +55,9 @@ namespace dataStreamer {
     /**
      * Print an array of numeric values as CSV to the serial port
      */
-    //% blockId=datastreamer_writenumbers block="write array as comma seperated numbers %values|\\%||format %decimalDigits"
+    //% blockId=datastreamer_writenumbers block="write array as comma seperated numbers %values||decimal digits %decimalDigits"
     //% weight=10
     //% values.shadow="lists_create_with"
-    //% decimalDigits.defl=2
-    //% expandableArgumentMode=toggle
     export function writeNumbers(values: number[], decimalDigits: number): void {
         for (let i = 0; i < values.length; i++) {
             dataStreamer.writeNumber(values[i], decimalDigits)
