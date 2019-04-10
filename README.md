@@ -1,6 +1,6 @@
 # Hacking STEM [![Build Status](https://travis-ci.org/Microsoft/pxt-hacking-stem.svg?branch=master)](https://travis-ci.org/Microsoft/pxt-hacking-stem)
 
-Support for [Hacking STEM](https://www.microsoft.com/en-us/education/education-workshop/activity-library.aspx) activities in [micro:bit](https://makecode.microbit.org). For Hacking Stem activities you will need to enable the Data Streamer Add-in in Excel. For information on enabling Data Streamer, click here (https://aka.ms/data-streamer). This extension helps build the code to emit serial data in the format required by Data Streamer.
+Support for [Hacking STEM](https://www.microsoft.com/en-us/education/education-workshop/activity-library.aspx) activities in [micro:bit](https://makecode.microbit.org). For Hacking Stem activities you will need to enable the Data Streamer Add-in in Excel. For information on enabling Data Streamer, [click here](https://aka.ms/data-streamer). This extension helps build the code to emit serial data in the format required by Data Streamer.
 
 ## Usage
 
