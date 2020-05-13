@@ -9,12 +9,14 @@
     "files": [
         "README.md",
         "extension.cpp",
-        "extension.ts",
-        "shims.d.ts",
-        "enums.d.ts"
+        "extension.ts"
     ],
     "testFiles": [
         "test.ts"
     ],
-    "public": true
+    "public": true,
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
 }
