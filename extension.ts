@@ -12,7 +12,6 @@ namespace dataStreamer {
     //% weight=30
     //% decimalDigits.defl=2
     //% expandableArgumentMode=toggle
-
     export function writeNumber(value: number, decimalDigits: number = 2) {
         //Format to right number of decimalDigits
         let text: string = value.toString();
@@ -71,12 +70,17 @@ namespace dataStreamer {
         }
     }
 
-    //% shim=dataStreamer::init
-    function init() {
-        // keep this statement
+        /**
+     * Set the USB baud rate connection.
+     * @param rate the new baud rate.
+     */
+    //% weight=10
+    //% blockId=datastreamer_setBaud block="set baud rate %rate"
+    //% rate.defl=9600 shim=dataStreamer::setBaudRate
+    export function setBaudRate(rate?: BaudRate): void {
         return;
     }
 
-    init();
-
+    serial.redirectToUSB()
+    dataStreamer.setBaudRate(BaudRate.BaudRate9600)
 }
