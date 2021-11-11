@@ -13,6 +13,11 @@ namespace dataStreamer {
     //% decimalDigits.defl=2
     //% expandableArgumentMode=toggle
     export function writeNumber(value: number, decimalDigits: number = 2) {
+        if (isNaN(value)) {
+            serial.writeString(" ")
+            return; // don't write anything if the number is not defined
+        }
+
         //Format to right number of decimalDigits
         let text: string = value.toString();
         let len = 0; //Tracks the subscrtring length
@@ -41,7 +46,8 @@ namespace dataStreamer {
     //% weight=20
     //% text.defl=","
     export function writeString(text: string) {
-        serial.writeString(text)
+        if (text)
+            serial.writeString(text)
     }
 
     /**
