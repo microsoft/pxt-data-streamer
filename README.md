@@ -40,6 +40,7 @@ let mv = 0
 basic.forever(() => {
     mv = pins.analogReadPin(AnalogPin.P0) * 3.3 / 1023
     dataStreamer.writeNumber(mv,4)
+    dataStreamer.writeLine()
 })
 ```
 

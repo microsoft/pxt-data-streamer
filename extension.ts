@@ -54,6 +54,15 @@ namespace dataStreamer {
     }
 
     /**
+     * Configures the serial communication to use USB and 9600 bauds
+     */
+    export function setup(baudRate = BaudRate.BaudRate9600) {
+        serial.redirectToUSB()
+        if (baudRate)
+            serial.setBaudRate(baudRate)
+    }
+
+    /**
      * Print an array of numeric values as CSV to the serial port
      */
     //% blockId=datastreamer_writenumberarray block="write number array %values||decimal digits %decimalDigits"
@@ -70,6 +79,6 @@ namespace dataStreamer {
         }
     }
 
-    serial.redirectToUSB()
-    serial.setBaudRate(BaudRate.BaudRate9600)
+
+    setup()
 }
