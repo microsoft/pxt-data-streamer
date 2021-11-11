@@ -17,13 +17,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install
-        run: |
-          npm install -g pxt
-          pxt target microbit
+      - name: install MakeCode cli
+        run: npm install -g -u makecode
       - name: build
-        run: |
-          pxt install
-          pxt build --cloud
+        run: mkc          
         env:
           CI: true
